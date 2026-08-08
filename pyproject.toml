@@ -21,7 +21,7 @@ dependencies = [
 [project.optional-dependencies]
 foundation = ["chgnet>=0.4", "mace-torch>=0.3"]
 anchors = ["mp-api>=0.41"]
-dev = ["pytest>=8.0", "ruff>=0.4", "black>=24.0"]
+dev = ["pytest>=8.0", "ruff==0.16.2", "black==26.5.1"]
 
 [project.scripts]
 alloybench = "alloybench.cli:main"
@@ -31,6 +31,7 @@ where = ["src"]
 
 [tool.black]
 line-length = 100
+target-version = ["py311"]
 
 [tool.ruff]
 line-length = 100
