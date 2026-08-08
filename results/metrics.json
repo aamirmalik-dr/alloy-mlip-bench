@@ -1,0 +1,751 @@
+{
+  "provenance": {
+    "label_source": "surrogate model labels from a pretrained universal potential, NOT DFT",
+    "teacher": {
+      "package": "chgnet",
+      "version": "0.4.2",
+      "checkpoint": "CHGNet v0.3.0 default pretrained weights (MPtrj-trained)",
+      "license": "BSD-3-Clause (code and weights)",
+      "n_parameters": 412525
+    },
+    "n_frames": 1566,
+    "n_groups": 72,
+    "compositions": [
+      "Nb",
+      "Ti",
+      "Ti2ZrNb",
+      "TiNb",
+      "TiZr",
+      "TiZrNb",
+      "TiZrNb2",
+      "Zr",
+      "ZrNb"
+    ],
+    "atoms_min": 16,
+    "atoms_max": 54,
+    "labeling_seconds_per_frame": 0.0856,
+    "md_generation_seconds": 358.4,
+    "config": {
+      "teacher": "chgnet",
+      "seed": 20260807,
+      "compositions": [
+        "Ti",
+        "Zr",
+        "Nb",
+        "TiZr",
+        "TiNb",
+        "ZrNb",
+        "TiZrNb"
+      ],
+      "holdout_compositions": [
+        "Ti2ZrNb",
+        "TiZrNb2"
+      ],
+      "reps_small": 2,
+      "reps_large": 3,
+      "rattle_amplitudes": [
+        0.05,
+        0.1,
+        0.18
+      ],
+      "rattle_frames_per_batch": 30,
+      "rattle_frames_large": 12,
+      "strain_frames_per_batch": 30,
+      "md_temperatures_k": [
+        600,
+        1400
+      ],
+      "md_steps": 240,
+      "md_sample_every": 12
+    }
+  },
+  "teacher_choice": {
+    "choice": "chgnet",
+    "criterion": "faster CPU wall time per energy+forces call, measured in this session",
+    "candidates": [
+      {
+        "name": "chgnet",
+        "seconds_per_call_54_atoms": 0.3084,
+        "package": "chgnet",
+        "version": "0.4.2",
+        "checkpoint": "CHGNet v0.3.0 default pretrained weights (MPtrj-trained)",
+        "license": "BSD-3-Clause (code and weights)",
+        "n_parameters": 412525
+      },
+      {
+        "name": "mace-mp0-small",
+        "seconds_per_call_54_atoms": 0.5982,
+        "package": "mace-torch",
+        "version": "0.3.16",
+        "checkpoint": "MACE-MP-0 small",
+        "license": "MIT (code and MACE-MP-0 weights)",
+        "n_parameters": 3847696
+      }
+    ],
+    "note": "Labels produced with the chosen teacher are surrogate model labels, not DFT."
+  },
+  "anchors_source": "Materials Project API (DFT), CC BY 4.0",
+  "training": {
+    "split": {
+      "train": 882,
+      "val": 144,
+      "test": 192,
+      "transfer": 348
+    },
+    "compact": {
+      "kind": "compact",
+      "screen": [
+        {
+          "lr": 0.001,
+          "force_weight": 0.2,
+          "val_score": 28.03938013580828,
+          "seconds": 471.7191048999957
+        },
+        {
+          "lr": 0.003,
+          "force_weight": 0.2,
+          "val_score": 25.197634458180097,
+          "seconds": 425.2983645000204
+        },
+        {
+          "lr": 0.001,
+          "force_weight": 1.0,
+          "val_score": 31.560050977259422,
+          "seconds": 470.72256399999605
+        },
+        {
+          "lr": 0.003,
+          "force_weight": 1.0,
+          "val_score": 24.458109445046162,
+          "seconds": 473.92704089998733
+        }
+      ],
+      "chosen": {
+        "lr": 0.003,
+        "force_weight": 1.0
+      },
+      "screen_epochs": 25,
+      "final_epochs": 80,
+      "batch_size": 8,
+      "seed": 0,
+      "n_parameters": 6243,
+      "element_refs_ev": [
+        -7.775484241422464,
+        -8.450992314365223,
+        -9.925671433670606
+      ],
+      "train_seconds": 1396.2683517000114
+    },
+    "pairnet": {
+      "kind": "pairnet",
+      "screen": [
+        {
+          "lr": 0.001,
+          "force_weight": 0.2,
+          "val_score": 59.5896565974986,
+          "seconds": 167.82806899998104
+        },
+        {
+          "lr": 0.003,
+          "force_weight": 0.2,
+          "val_score": 58.76014756593095,
+          "seconds": 165.85683450000943
+        },
+        {
+          "lr": 0.001,
+          "force_weight": 1.0,
+          "val_score": 52.853053038282816,
+          "seconds": 168.330632600002
+        },
+        {
+          "lr": 0.003,
+          "force_weight": 1.0,
+          "val_score": 58.605872200044416,
+          "seconds": 167.62871440002345
+        }
+      ],
+      "chosen": {
+        "lr": 0.001,
+        "force_weight": 1.0
+      },
+      "screen_epochs": 25,
+      "final_epochs": 80,
+      "batch_size": 8,
+      "seed": 0,
+      "n_parameters": 433,
+      "element_refs_ev": [
+        -7.775484241422464,
+        -8.450992314365223,
+        -9.925671433670606
+      ],
+      "train_seconds": 538.9323204999964
+    }
+  },
+  "accuracy": {
+    "compact": {
+      "test": {
+        "n_frames": 192,
+        "e_mae_mev_atom": 5.325438931789282,
+        "e_rmse_mev_atom": 16.439294143780295,
+        "f_mae_mev_a": 33.628649384441324,
+        "f_rmse_mev_a": 52.9681394888905
+      },
+      "transfer": {
+        "n_frames": 348,
+        "e_mae_mev_atom": 8.608114813340222,
+        "e_rmse_mev_atom": 13.412400918319536,
+        "f_mae_mev_a": 56.323479572596085,
+        "f_rmse_mev_a": 256.1160804987093
+      }
+    },
+    "pairnet": {
+      "test": {
+        "n_frames": 192,
+        "e_mae_mev_atom": 18.443332350888156,
+        "e_rmse_mev_atom": 45.11450674225942,
+        "f_mae_mev_a": 84.8453228746557,
+        "f_rmse_mev_a": 129.1326528027119
+      },
+      "transfer": {
+        "n_frames": 348,
+        "e_mae_mev_atom": 15.74072052593355,
+        "e_rmse_mev_atom": 38.528452118051206,
+        "f_mae_mev_a": 102.16146233915678,
+        "f_rmse_mev_a": 266.34081028614065
+      }
+    }
+  },
+  "foundation_accuracy": {
+    "model": {
+      "package": "mace-torch",
+      "version": "0.3.16",
+      "checkpoint": "MACE-MP-0 small",
+      "license": "MIT (code and MACE-MP-0 weights)",
+      "n_parameters": 3847696
+    },
+    "reference": "teacher labels (chgnet) on the held-out group-split test set",
+    "note": "Model-versus-model disagreement, not error against ground truth. Per-element energy offsets fitted on the validation split.",
+    "element_offsets_ev": [
+      0.04668804834827045,
+      -0.046731421237954096,
+      0.003376165339863735
+    ],
+    "n_test_frames": 192,
+    "e_mae_mev_atom": 43.84288599723638,
+    "e_rmse_mev_atom": 48.715638292513766,
+    "f_mae_mev_a": 172.60560161408898,
+    "f_rmse_mev_a": 255.9343695920618,
+    "wall_seconds": 43.85438580001937
+  },
+  "split_gap": {
+    "model": "compact",
+    "config": {
+      "dataset": "data/full/dataset.extxyz",
+      "holdout_compositions": [
+        "Ti2ZrNb",
+        "TiZrNb2"
+      ],
+      "model": "compact",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "epochs": 30,
+      "lr": 0.003,
+      "force_weight": 1.0,
+      "batch_size": 8,
+      "out": "results/split_gap.json"
+    },
+    "runs": [
+      {
+        "seed": 0,
+        "protocol": "group",
+        "n_frames": 192,
+        "e_mae_mev_atom": 8.676040578849223,
+        "e_rmse_mev_atom": 15.982636636106642,
+        "f_mae_mev_a": 41.48286762095253,
+        "f_rmse_mev_a": 70.60316177114218
+      },
+      {
+        "seed": 0,
+        "protocol": "random_frame",
+        "n_frames": 183,
+        "e_mae_mev_atom": 4.74950328721926,
+        "e_rmse_mev_atom": 9.485371046903722,
+        "f_mae_mev_a": 42.19953502167981,
+        "f_rmse_mev_a": 165.77215996930963
+      },
+      {
+        "seed": 1,
+        "protocol": "group",
+        "n_frames": 192,
+        "e_mae_mev_atom": 16.78177594629727,
+        "e_rmse_mev_atom": 44.52692069807768,
+        "f_mae_mev_a": 53.27471838360911,
+        "f_rmse_mev_a": 120.92674903045862
+      },
+      {
+        "seed": 1,
+        "protocol": "random_frame",
+        "n_frames": 183,
+        "e_mae_mev_atom": 5.504349291713221,
+        "e_rmse_mev_atom": 13.030365751394273,
+        "f_mae_mev_a": 39.69586711547816,
+        "f_rmse_mev_a": 78.62893124085419
+      },
+      {
+        "seed": 2,
+        "protocol": "group",
+        "n_frames": 156,
+        "e_mae_mev_atom": 12.39209389156462,
+        "e_rmse_mev_atom": 23.122935725052088,
+        "f_mae_mev_a": 48.25793902539955,
+        "f_rmse_mev_a": 85.40199452279221
+      },
+      {
+        "seed": 2,
+        "protocol": "random_frame",
+        "n_frames": 183,
+        "e_mae_mev_atom": 6.682582355184189,
+        "e_rmse_mev_atom": 24.446883967183354,
+        "f_mae_mev_a": 37.083855161606714,
+        "f_rmse_mev_a": 76.55756330680678
+      }
+    ],
+    "summary": {
+      "group": {
+        "e_mae_mev_atom": {
+          "mean": 12.616636805570371,
+          "std": 3.3129595129780034
+        },
+        "f_mae_mev_a": {
+          "mean": 47.671841676653735,
+          "std": 4.8318090938313025
+        }
+      },
+      "random_frame": {
+        "e_mae_mev_atom": {
+          "mean": 5.645478311372223,
+          "std": 0.7954607557441045
+        },
+        "f_mae_mev_a": {
+          "mean": 39.65975243292156,
+          "std": 2.0886236792700736
+        }
+      }
+    }
+  },
+  "suite": {
+    "pairnet": {
+      "n_parameters": 433,
+      "eos": {
+        "Ti": {
+          "a0_angstrom": 3.6001,
+          "b0_gpa": 26.7
+        },
+        "Zr": {
+          "a0_angstrom": 3.9689,
+          "b0_gpa": 17.9
+        },
+        "Nb": {
+          "a0_angstrom": 3.5293,
+          "b0_gpa": 77.9
+        },
+        "TiZrNb": {
+          "a0_angstrom": 3.6849,
+          "b0_gpa": 29.7
+        }
+      },
+      "elastic": {
+        "Nb": {
+          "c11_gpa": 101.8,
+          "c12_gpa": 65.9,
+          "c44_gpa": 66.3,
+          "c_prime_gpa": 17.9
+        },
+        "TiZrNb": {
+          "c11_gpa": 36.0,
+          "c12_gpa": 26.5,
+          "c44_gpa": 25.2,
+          "c_prime_gpa": 4.7
+        }
+      },
+      "vacancy_ef_ev": {
+        "Nb": {
+          "mean": 0.173,
+          "std": 0.0,
+          "by_element": {
+            "Nb": 0.173
+          }
+        },
+        "TiZrNb": {
+          "mean": 0.167,
+          "std": 0.074,
+          "by_element": {
+            "Nb": 0.131,
+            "Ti": 0.255,
+            "Zr": 0.097
+          }
+        }
+      },
+      "nve": {
+        "drift_mev_atom_ps": 0.0002,
+        "gate_mev_atom_ps": 1.0,
+        "gate_passed": true
+      },
+      "speed": {
+        "ms_per_atom_step": 0.1802,
+        "ms_per_step": 9.73,
+        "n_atoms": 54
+      },
+      "rdf_first_peak": {
+        "300": {
+          "position_angstrom": 3.235,
+          "height": 4.35
+        },
+        "1200": {
+          "position_angstrom": 3.14,
+          "height": 2.52
+        }
+      },
+      "thermal": {
+        "alpha_per_k": 3.83e-05,
+        "a_by_temp": {
+          "300": 3.7042,
+          "600": 3.7332,
+          "900": 3.7893
+        }
+      },
+      "anchor_deviation": {
+        "per_quantity_percent": {
+          "a0_Ti": 10.72,
+          "b0_Ti": 75.93,
+          "a0_Zr": 10.81,
+          "b0_Zr": 79.72,
+          "a0_Nb": 6.38,
+          "b0_Nb": 54.72,
+          "c11_gpa_Nb": 50.57,
+          "c12_gpa_Nb": 57.46,
+          "c44_gpa_Nb": 54.21
+        },
+        "mean_abs_percent": 44.5,
+        "n_quantities": 9
+      }
+    },
+    "compact": {
+      "n_parameters": 6243,
+      "eos": {
+        "Ti": {
+          "a0_angstrom": 3.2479,
+          "b0_gpa": 68.0
+        },
+        "Zr": {
+          "a0_angstrom": 3.5979,
+          "b0_gpa": 169.5
+        },
+        "Nb": {
+          "a0_angstrom": 3.3253,
+          "b0_gpa": 147.0
+        },
+        "TiZrNb": {
+          "a0_angstrom": 3.4011,
+          "b0_gpa": 98.5
+        }
+      },
+      "elastic": {
+        "Nb": {
+          "c11_gpa": 181.0,
+          "c12_gpa": 130.0,
+          "c44_gpa": 22.2,
+          "c_prime_gpa": 25.5
+        },
+        "TiZrNb": {
+          "c11_gpa": 112.0,
+          "c12_gpa": 91.8,
+          "c44_gpa": 22.5,
+          "c_prime_gpa": 10.1
+        }
+      },
+      "vacancy_ef_ev": {
+        "Nb": {
+          "mean": 1.583,
+          "std": 0.0,
+          "by_element": {
+            "Nb": 1.583
+          }
+        },
+        "TiZrNb": {
+          "mean": 0.716,
+          "std": 0.162,
+          "by_element": {
+            "Nb": 0.5,
+            "Ti": 0.713,
+            "Zr": 0.826
+          }
+        }
+      },
+      "nve": {
+        "drift_mev_atom_ps": 0.0003,
+        "gate_mev_atom_ps": 1.0,
+        "gate_passed": true
+      },
+      "speed": {
+        "ms_per_atom_step": 0.264,
+        "ms_per_step": 14.26,
+        "n_atoms": 54
+      },
+      "rdf_first_peak": {
+        "300": {
+          "position_angstrom": 2.93,
+          "height": 4.01
+        },
+        "1200": {
+          "position_angstrom": 2.897,
+          "height": 2.87
+        }
+      },
+      "thermal": {
+        "alpha_per_k": 7.758e-06,
+        "a_by_temp": {
+          "300": 3.4089,
+          "600": 3.4167,
+          "900": 3.4248
+        }
+      },
+      "anchor_deviation": {
+        "per_quantity_percent": {
+          "a0_Ti": 0.12,
+          "b0_Ti": 38.78,
+          "a0_Zr": 0.45,
+          "b0_Zr": 91.73,
+          "a0_Nb": 0.23,
+          "b0_Nb": 14.56,
+          "c11_gpa_Nb": 12.13,
+          "c12_gpa_Nb": 16.13,
+          "c44_gpa_Nb": 48.26
+        },
+        "mean_abs_percent": 24.71,
+        "n_quantities": 9
+      }
+    },
+    "chgnet": {
+      "n_parameters": 412525,
+      "eos": {
+        "Ti": {
+          "a0_angstrom": 3.2694,
+          "b0_gpa": 72.3
+        },
+        "Zr": {
+          "a0_angstrom": 3.5846,
+          "b0_gpa": 97.1
+        },
+        "Nb": {
+          "a0_angstrom": 3.3274,
+          "b0_gpa": 146.5
+        },
+        "TiZrNb": {
+          "a0_angstrom": 3.3921,
+          "b0_gpa": 111.8
+        }
+      },
+      "elastic": {
+        "Nb": {
+          "c11_gpa": 176.0,
+          "c12_gpa": 131.8,
+          "c44_gpa": 3.5,
+          "c_prime_gpa": 22.1
+        },
+        "TiZrNb": {
+          "c11_gpa": 123.0,
+          "c12_gpa": 106.2,
+          "c44_gpa": 20.8,
+          "c_prime_gpa": 8.4
+        }
+      },
+      "vacancy_ef_ev": {
+        "Nb": {
+          "mean": 1.467,
+          "std": 0.0,
+          "by_element": {
+            "Nb": 1.467
+          }
+        },
+        "TiZrNb": {
+          "mean": 0.986,
+          "std": 0.163,
+          "by_element": {
+            "Nb": 0.787,
+            "Ti": 0.939,
+            "Zr": 1.132
+          }
+        }
+      },
+      "nve": {
+        "drift_mev_atom_ps": 0.0003,
+        "gate_mev_atom_ps": 1.0,
+        "gate_passed": true
+      },
+      "speed": {
+        "ms_per_atom_step": 3.8585,
+        "ms_per_step": 208.36,
+        "n_atoms": 54
+      },
+      "rdf_first_peak": {
+        "300": {
+          "position_angstrom": 2.93,
+          "height": 3.94
+        },
+        "1200": {
+          "position_angstrom": 2.921,
+          "height": 2.9
+        }
+      },
+      "thermal": {
+        "alpha_per_k": 6.114e-06,
+        "a_by_temp": {
+          "300": 3.3978,
+          "600": 3.4039,
+          "900": 3.4103
+        }
+      },
+      "anchor_deviation": {
+        "per_quantity_percent": {
+          "a0_Ti": 0.55,
+          "b0_Ti": 34.89,
+          "a0_Zr": 0.08,
+          "b0_Zr": 9.81,
+          "a0_Nb": 0.3,
+          "b0_Nb": 14.83,
+          "c11_gpa_Nb": 14.56,
+          "c12_gpa_Nb": 14.97,
+          "c44_gpa_Nb": 91.78
+        },
+        "mean_abs_percent": 20.2,
+        "n_quantities": 9
+      }
+    },
+    "mace-mp0-small": {
+      "n_parameters": 3847696,
+      "eos": {
+        "Ti": {
+          "a0_angstrom": 3.2494,
+          "b0_gpa": 101.2
+        },
+        "Zr": {
+          "a0_angstrom": 3.6069,
+          "b0_gpa": 97.0
+        },
+        "Nb": {
+          "a0_angstrom": 3.3216,
+          "b0_gpa": 179.3
+        },
+        "TiZrNb": {
+          "a0_angstrom": 3.3942,
+          "b0_gpa": 118.7
+        }
+      },
+      "elastic": {
+        "Nb": {
+          "c11_gpa": 220.5,
+          "c12_gpa": 158.6,
+          "c44_gpa": 34.3,
+          "c_prime_gpa": 30.9
+        },
+        "TiZrNb": {
+          "c11_gpa": 140.0,
+          "c12_gpa": 108.0,
+          "c44_gpa": 31.4,
+          "c_prime_gpa": 16.0
+        }
+      },
+      "vacancy_ef_ev": {
+        "Nb": {
+          "mean": 2.908,
+          "std": 0.0,
+          "by_element": {
+            "Nb": 2.908
+          }
+        },
+        "TiZrNb": {
+          "mean": 1.624,
+          "std": 0.251,
+          "by_element": {
+            "Nb": 1.196,
+            "Ti": 1.71,
+            "Zr": 1.753
+          }
+        }
+      },
+      "nve": {
+        "drift_mev_atom_ps": 0.0004,
+        "gate_mev_atom_ps": 1.0,
+        "gate_passed": true
+      },
+      "speed": {
+        "ms_per_atom_step": 8.7794,
+        "ms_per_step": 474.09,
+        "n_atoms": 54
+      },
+      "rdf_first_peak": {
+        "300": {
+          "position_angstrom": 2.938,
+          "height": 4.17
+        },
+        "1200": {
+          "position_angstrom": 2.963,
+          "height": 2.97
+        }
+      },
+      "thermal": {
+        "alpha_per_k": 6.553e-06,
+        "a_by_temp": {
+          "300": 3.4018,
+          "600": 3.4087,
+          "900": 3.4152
+        }
+      },
+      "anchor_deviation": {
+        "per_quantity_percent": {
+          "a0_Ti": 0.07,
+          "b0_Ti": 8.83,
+          "a0_Zr": 0.7,
+          "b0_Zr": 9.75,
+          "a0_Nb": 0.12,
+          "b0_Nb": 4.19,
+          "c11_gpa_Nb": 7.05,
+          "c12_gpa_Nb": 2.34,
+          "c44_gpa_Nb": 20.35
+        },
+        "mean_abs_percent": 5.93,
+        "n_quantities": 9
+      }
+    }
+  },
+  "pareto": {
+    "pairnet": {
+      "ms_per_atom_step": 0.1802,
+      "f_rmse_vs_teacher_mev_a": 129.1,
+      "anchor_mean_abs_deviation_percent": 44.5,
+      "n_parameters": 433
+    },
+    "compact": {
+      "ms_per_atom_step": 0.264,
+      "f_rmse_vs_teacher_mev_a": 53.0,
+      "anchor_mean_abs_deviation_percent": 24.71,
+      "n_parameters": 6243
+    },
+    "chgnet": {
+      "ms_per_atom_step": 3.8585,
+      "f_rmse_vs_teacher_mev_a": 0.0,
+      "anchor_mean_abs_deviation_percent": 20.2,
+      "n_parameters": 412525
+    },
+    "mace-mp0-small": {
+      "ms_per_atom_step": 8.7794,
+      "f_rmse_vs_teacher_mev_a": 255.9,
+      "anchor_mean_abs_deviation_percent": 5.93,
+      "n_parameters": 3847696
+    }
+  }
+}

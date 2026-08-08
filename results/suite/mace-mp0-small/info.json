@@ -1,0 +1,8 @@
+{
+  "model": "mace-mp0-small",
+  "package": "mace-torch",
+  "version": "0.3.16",
+  "checkpoint": "MACE-MP-0 small",
+  "license": "MIT (code and MACE-MP-0 weights)",
+  "n_parameters": 3847696
+}

@@ -1,0 +1,22 @@
+{
+  "model": {
+    "package": "mace-torch",
+    "version": "0.3.16",
+    "checkpoint": "MACE-MP-0 small",
+    "license": "MIT (code and MACE-MP-0 weights)",
+    "n_parameters": 3847696
+  },
+  "reference": "teacher labels (chgnet) on the held-out group-split test set",
+  "note": "Model-versus-model disagreement, not error against ground truth. Per-element energy offsets fitted on the validation split.",
+  "element_offsets_ev": [
+    0.04668804834827045,
+    -0.046731421237954096,
+    0.003376165339863735
+  ],
+  "n_test_frames": 192,
+  "e_mae_mev_atom": 43.84288599723638,
+  "e_rmse_mev_atom": 48.715638292513766,
+  "f_mae_mev_a": 172.60560161408898,
+  "f_rmse_mev_a": 255.9343695920618,
+  "wall_seconds": 43.85438580001937
+}

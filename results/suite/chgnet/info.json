@@ -1,0 +1,8 @@
+{
+  "model": "chgnet",
+  "package": "chgnet",
+  "version": "0.4.2",
+  "checkpoint": "CHGNet v0.3.0 default pretrained weights (MPtrj-trained)",
+  "license": "BSD-3-Clause (code and weights)",
+  "n_parameters": 412525
+}

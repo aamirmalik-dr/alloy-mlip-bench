@@ -1,0 +1,85 @@
+{
+  "targets": [
+    {
+      "composition": "Nb",
+      "n_sites_total": 54,
+      "a0_angstrom": 3.3215825321611607,
+      "bulk_converged": true,
+      "reservoir_e_atom_ev": {
+        "Ti": -7.866453316937999,
+        "Zr": -8.605055478970447,
+        "Nb": -10.077175841674089
+      },
+      "sites": [
+        {
+          "site": 11,
+          "element": "Nb",
+          "ef_ev": 2.908179415207714,
+          "defect_converged": true,
+          "defect_relax_steps": 18
+        }
+      ],
+      "ef_mean_ev": 2.908179415207714,
+      "ef_std_ev": 0.0,
+      "ef_by_element_ev": {
+        "Nb": 2.908179415207714
+      }
+    },
+    {
+      "composition": "TiZrNb",
+      "n_sites_total": 54,
+      "a0_angstrom": 3.3942041632601607,
+      "bulk_converged": true,
+      "reservoir_e_atom_ev": {
+        "Ti": -7.866453316937999,
+        "Zr": -8.605055478970447,
+        "Nb": -10.077175841674089
+      },
+      "sites": [
+        {
+          "site": 9,
+          "element": "Ti",
+          "ef_ev": 1.8075218505449229,
+          "defect_converged": true,
+          "defect_relax_steps": 54
+        },
+        {
+          "site": 41,
+          "element": "Zr",
+          "ef_ev": 1.5737768277222504,
+          "defect_converged": true,
+          "defect_relax_steps": 65
+        },
+        {
+          "site": 26,
+          "element": "Nb",
+          "ef_ev": 1.1960016218919822,
+          "defect_converged": true,
+          "defect_relax_steps": 47
+        },
+        {
+          "site": 6,
+          "element": "Zr",
+          "ef_ev": 1.9318285663646666,
+          "defect_converged": true,
+          "defect_relax_steps": 48
+        },
+        {
+          "site": 10,
+          "element": "Ti",
+          "ef_ev": 1.612626041000702,
+          "defect_converged": true,
+          "defect_relax_steps": 44
+        }
+      ],
+      "ef_mean_ev": 1.6243509815049049,
+      "ef_std_ev": 0.2507079678021929,
+      "ef_by_element_ev": {
+        "Nb": 1.1960016218919822,
+        "Ti": 1.7100739457728125,
+        "Zr": 1.7528026970434585
+      }
+    }
+  ],
+  "wall_seconds": 135.63047740000184
+}

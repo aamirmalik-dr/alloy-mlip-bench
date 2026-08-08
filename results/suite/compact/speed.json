@@ -1,0 +1,8 @@
+{
+  "composition": "TiZrNb",
+  "n_atoms": 54,
+  "timed_steps": 100,
+  "wall_seconds": 1.7328484999889042,
+  "ms_per_step": 14.258130000089295,
+  "ms_per_atom_step": 0.26403944444609806
+}

@@ -1,0 +1,99 @@
+{
+  "model": "compact",
+  "config": {
+    "dataset": "data/full/dataset.extxyz",
+    "holdout_compositions": [
+      "Ti2ZrNb",
+      "TiZrNb2"
+    ],
+    "model": "compact",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "epochs": 30,
+    "lr": 0.003,
+    "force_weight": 1.0,
+    "batch_size": 8,
+    "out": "results/split_gap.json"
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "protocol": "group",
+      "n_frames": 192,
+      "e_mae_mev_atom": 8.676040578849223,
+      "e_rmse_mev_atom": 15.982636636106642,
+      "f_mae_mev_a": 41.48286762095253,
+      "f_rmse_mev_a": 70.60316177114218
+    },
+    {
+      "seed": 0,
+      "protocol": "random_frame",
+      "n_frames": 183,
+      "e_mae_mev_atom": 4.74950328721926,
+      "e_rmse_mev_atom": 9.485371046903722,
+      "f_mae_mev_a": 42.19953502167981,
+      "f_rmse_mev_a": 165.77215996930963
+    },
+    {
+      "seed": 1,
+      "protocol": "group",
+      "n_frames": 192,
+      "e_mae_mev_atom": 16.78177594629727,
+      "e_rmse_mev_atom": 44.52692069807768,
+      "f_mae_mev_a": 53.27471838360911,
+      "f_rmse_mev_a": 120.92674903045862
+    },
+    {
+      "seed": 1,
+      "protocol": "random_frame",
+      "n_frames": 183,
+      "e_mae_mev_atom": 5.504349291713221,
+      "e_rmse_mev_atom": 13.030365751394273,
+      "f_mae_mev_a": 39.69586711547816,
+      "f_rmse_mev_a": 78.62893124085419
+    },
+    {
+      "seed": 2,
+      "protocol": "group",
+      "n_frames": 156,
+      "e_mae_mev_atom": 12.39209389156462,
+      "e_rmse_mev_atom": 23.122935725052088,
+      "f_mae_mev_a": 48.25793902539955,
+      "f_rmse_mev_a": 85.40199452279221
+    },
+    {
+      "seed": 2,
+      "protocol": "random_frame",
+      "n_frames": 183,
+      "e_mae_mev_atom": 6.682582355184189,
+      "e_rmse_mev_atom": 24.446883967183354,
+      "f_mae_mev_a": 37.083855161606714,
+      "f_rmse_mev_a": 76.55756330680678
+    }
+  ],
+  "summary": {
+    "group": {
+      "e_mae_mev_atom": {
+        "mean": 12.616636805570371,
+        "std": 3.3129595129780034
+      },
+      "f_mae_mev_a": {
+        "mean": 47.671841676653735,
+        "std": 4.8318090938313025
+      }
+    },
+    "random_frame": {
+      "e_mae_mev_atom": {
+        "mean": 5.645478311372223,
+        "std": 0.7954607557441045
+      },
+      "f_mae_mev_a": {
+        "mean": 39.65975243292156,
+        "std": 2.0886236792700736
+      }
+    }
+  }
+}

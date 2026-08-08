@@ -1,0 +1,39 @@
+{
+  "runs": [
+    {
+      "composition": "TiZrNb",
+      "temperature_k": 300.0,
+      "n_atoms": 54,
+      "timestep_fs": 2.0,
+      "equil_steps": 300,
+      "prod_steps": 800,
+      "a_mean_angstrom": 3.7042095156890706,
+      "a_std_angstrom": 0.00666743340141059,
+      "n_samples": 160
+    },
+    {
+      "composition": "TiZrNb",
+      "temperature_k": 600.0,
+      "n_atoms": 54,
+      "timestep_fs": 2.0,
+      "equil_steps": 300,
+      "prod_steps": 800,
+      "a_mean_angstrom": 3.733211791584209,
+      "a_std_angstrom": 0.015211292228403095,
+      "n_samples": 160
+    },
+    {
+      "composition": "TiZrNb",
+      "temperature_k": 900.0,
+      "n_atoms": 54,
+      "timestep_fs": 2.0,
+      "equil_steps": 300,
+      "prod_steps": 800,
+      "a_mean_angstrom": 3.789341070322232,
+      "a_std_angstrom": 0.033368111342090036,
+      "n_samples": 160
+    }
+  ],
+  "alpha_per_k": 3.8303968441215576e-05,
+  "wall_seconds": 174.30199839998386
+}

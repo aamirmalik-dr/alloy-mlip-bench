@@ -1,0 +1,22 @@
+{
+  "model": "compact",
+  "package": "alloybench (this repository)",
+  "version": "0.1.0",
+  "checkpoint": "models\\compact.pt",
+  "license": "MIT",
+  "n_parameters": 6243,
+  "trained_on": "surrogate teacher labels (never DFT)",
+  "train_info_keys": [
+    "batch_size",
+    "chosen",
+    "element_refs_ev",
+    "final_epochs",
+    "history",
+    "kind",
+    "n_parameters",
+    "screen",
+    "screen_epochs",
+    "seed",
+    "train_seconds"
+  ]
+}
