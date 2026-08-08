@@ -39,5 +39,9 @@ src = ["src", "tests", "scripts"]
 [tool.ruff.lint]
 select = ["E", "F", "I", "W"]
 
+[tool.ruff.lint.per-file-ignores]
+# Notebook plotting cells use compact semicolon chains on purpose.
+"notebooks/*.ipynb" = ["E702", "E501"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -49,11 +49,11 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
+from alloybench.anchors import load_anchors
 from alloybench.calculators import TorchPotentialCalculator, get_calculator
 from alloybench.evaluate import evaluate_model
-from alloybench.frames import ELEMENTS
 from alloybench.labeling import label_frames
-from alloybench.lattice import bcc_supercell, rattle_batch, strain_batch
+from alloybench.lattice import rattle_batch, strain_batch
 from alloybench.models import fit_element_refs, set_element_refs
 from alloybench.properties import eos_scan, nve_drift, speed_benchmark
 from alloybench.splits import group_split
@@ -164,7 +164,6 @@ only non-model number in the plot."""),
     code("""\
 eos_c = eos_scan(calc, "Nb", reps=2, seed=rng_seed)
 eos_t = eos_scan(teacher, "Nb", reps=2, seed=rng_seed)
-from alloybench.anchors import load_anchors
 anchors = load_anchors("data")
 a_mp = anchors["anchors"]["Nb"]["a0_angstrom"]
 
