@@ -58,6 +58,8 @@ potential is 1.5x faster still but falls apart (44.5%).
 
 ## Fidelity to the teacher (held-out group split)
 
+![Held-out parity against teacher labels](results/figures/parity.png)
+
 Test = 192 frames from held-out generation groups; transfer = 348 frames of
 two compositions (Ti2ZrNb, TiZrNb2) never trained on.
 
@@ -86,6 +88,8 @@ forces, with a 4x smaller seed spread. Only group-split numbers are quoted
 anywhere in this repository. (The control runs at a reduced 30-epoch budget,
 so its absolute values sit above the 80-epoch headline numbers; the measured
 quantity is the gap.)
+
+![Split-protocol control](results/figures/split_gap.png)
 
 ## Property benchmark
 
@@ -116,6 +120,8 @@ predicts. The pair potential misplaces every equilibrium by 6 to 11% in a0;
 its EOS minima sit so far out that the scan's recentering walk (3 to 5 scans)
 was needed to find them at all.
 
+![Equation of state per model](results/figures/eos.png)
+
 ### Elastic constants (GPa), finite differences about each model's own a0
 
 | system | constant | pairnet | compact | chgnet | MACE | MP DFT | expt (RT) |
@@ -145,13 +151,15 @@ would average over several occupancies and larger cells.
 | system | pairnet | compact | chgnet | MACE | anchor |
 |---|---|---|---|---|---|
 | Nb | 0.17 | 1.58 | 1.47 | 2.91 | expt 2.6 to 3.1 |
-| TiZrNb (5 sites) | 0.17 +/- 0.05 | 0.72 +/- 0.16 | 0.99 +/- 0.16 | 1.62 +/- 0.25 | (none) |
+| TiZrNb (5 sites) | 0.17 +/- 0.07 | 0.72 +/- 0.16 | 0.99 +/- 0.16 | 1.62 +/- 0.25 | (none) |
 
 Only MACE lands inside the experimental Nb range. The teacher's severe
 underestimate (1.47 eV) is a known weakness of its family of potentials, and
 the compact model faithfully inherits it (1.58 eV): distillation reproduces
 the teacher, defects and all. 54-atom cells are small for defect energetics;
 the finite-size error is shared across models by construction.
+
+![Elastic constants and vacancy formation](results/figures/elastic_vacancy.png)
 
 ### Dynamics: RDF, thermal expansion, NVE gate
 
@@ -168,6 +176,12 @@ the finite-size error is shared across models by construction.
   0.0003 (compact), 0.0003 (chgnet), 0.0004 (MACE) meV/atom/ps and total-
   energy fluctuations below 0.01 meV/atom. No model failed the gate in this
   benchmark.
+
+![RDF per model and temperature](results/figures/rdf.png)
+
+![Thermal expansion](results/figures/thermal.png)
+
+![NVE stability gate](results/figures/nve.png)
 
 ### CPU speed (54-atom MD, idle machine)
 

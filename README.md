@@ -76,7 +76,8 @@ case), plus cited experimental values for quantities MP does not carry. See
 ## Install and run
 
 ```
-python -m venv .venv && .venv/Scripts/activate    # or source .venv/bin/activate
+python -m venv .venv
+.venv\Scripts\activate    # Windows; on Linux/macOS: source .venv/bin/activate
 pip install torch --index-url https://download.pytorch.org/whl/cpu
 pip install -e .
 ```
@@ -96,7 +97,7 @@ pip install -e .[foundation,anchors]
 python scripts/run_all.py
 ```
 
-`pytest tests -q` runs the 51-test suite (neighbor list against ASE and
+`pytest tests -q` runs the 52-test suite (neighbor list against ASE and
 brute force, autograd forces and stress against finite differences, the
 Cauchy-relation check on the elastic machinery, split leakage safety,
 calculator compliance).
