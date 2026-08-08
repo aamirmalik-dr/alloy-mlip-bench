@@ -109,8 +109,10 @@ def test_stress_matches_finite_differences(model_name, small_frame, request):
         assert abs(fd / (factor * volume) - stress[a, b]) < 1e-6
 
 
-def test_energy_smooth_when_pair_crosses_cutoff(pairnet_model):
+@pytest.mark.parametrize("model_name", ["compact_model", "pairnet_model"])
+def test_energy_smooth_when_pair_crosses_cutoff(model_name, request):
     """Move one atom through the cutoff radius; energy stays continuous."""
+    model = request.getfixturevalue(model_name)
     a = 20.0
     cell = np.eye(3) * a
     energies = []
@@ -120,10 +122,10 @@ def test_energy_smooth_when_pair_crosses_cutoff(pairnet_model):
             positions=np.array([[0.0, 0.0, 0.0], [r, 0.0, 0.0]]),
             cell=cell,
         )
-        energies.append(_energy(pairnet_model, frame))
+        energies.append(_energy(model, frame))
     steps = np.abs(np.diff(energies))
     assert steps.max() < 5e-3  # no jump at the cutoff crossing
-    # Beyond the cutoff the pair energy is exactly the isolated-atom sum.
+    # Beyond the cutoff the energy is exactly the isolated-atom sum.
     assert abs(energies[-1] - energies[-2]) < 1e-9
 
 
