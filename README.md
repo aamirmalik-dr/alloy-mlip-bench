@@ -96,7 +96,7 @@ pip install -e .[foundation,anchors]
 python scripts/run_all.py
 ```
 
-`pytest tests -q` runs the 48-test suite (neighbor list against ASE and
+`pytest tests -q` runs the 51-test suite (neighbor list against ASE and
 brute force, autograd forces and stress against finite differences, the
 Cauchy-relation check on the elastic machinery, split leakage safety,
 calculator compliance).
