@@ -1,0 +1,25 @@
+{
+  "choice": "chgnet",
+  "criterion": "faster CPU wall time per energy+forces call, measured in this session",
+  "candidates": [
+    {
+      "name": "chgnet",
+      "seconds_per_call_54_atoms": 0.3084,
+      "package": "chgnet",
+      "version": "0.4.2",
+      "checkpoint": "CHGNet v0.3.0 default pretrained weights (MPtrj-trained)",
+      "license": "BSD-3-Clause (code and weights)",
+      "n_parameters": 412525
+    },
+    {
+      "name": "mace-mp0-small",
+      "seconds_per_call_54_atoms": 0.5982,
+      "package": "mace-torch",
+      "version": "0.3.16",
+      "checkpoint": "MACE-MP-0 small",
+      "license": "MIT (code and MACE-MP-0 weights)",
+      "n_parameters": 3847696
+    }
+  ],
+  "note": "Labels produced with the chosen teacher are surrogate model labels, not DFT."
+}

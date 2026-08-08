@@ -1,0 +1,29 @@
+{
+  "source": "Literature fallback anchors (public Materials Project record pages, DFT), CC BY 4.0",
+  "note": "Used only when no MP_API_KEY is configured. Real DFT reference values for BCC elemental metals; conventional a0 from volume per atom, B0 is the Voigt-Reuss-Hill bulk modulus. The experimental block holds measured room-temperature values used where MP has no entry; experiment-versus-0-K-model caveats apply and are stated in RESULTS.md.",
+  "citation": "A. Jain et al., Commentary: The Materials Project, APL Materials 1, 011002 (2013). Record pages materialsproject.org/materials/mp-73 (Ti), mp-41 (Zr), mp-75 (Nb), accessed 2026-08-07.",
+  "anchors": {
+    "Ti": { "material_id": "mp-73", "a0_angstrom": 3.2516, "b0_gpa": 111.0 },
+    "Zr": { "material_id": "mp-41", "a0_angstrom": 3.5817, "b0_gpa": 88.4 },
+    "Nb": { "material_id": "mp-75", "a0_angstrom": 3.3176, "b0_gpa": 172.0 }
+  },
+  "experimental": {
+    "Nb_elastic_gpa": {
+      "c11": 246.5,
+      "c12": 134.5,
+      "c44": 28.7,
+      "conditions": "room temperature, single crystal",
+      "citation": "G. Simmons and H. Wang, Single Crystal Elastic Constants and Calculated Aggregate Properties: A Handbook, 2nd ed., MIT Press (1971)."
+    },
+    "Nb_thermal_expansion_per_k": {
+      "alpha": 7.3e-6,
+      "conditions": "linear coefficient near room temperature",
+      "citation": "CRC Handbook of Chemistry and Physics, thermal expansion of the elements."
+    },
+    "Nb_vacancy_formation_ev": {
+      "range": [2.6, 3.1],
+      "conditions": "positron annihilation and quenching experiments",
+      "citation": "P. Ehrhart, in Landolt-Bornstein, New Series III/25: Atomic Defects in Metals, Springer (1991)."
+    }
+  }
+}

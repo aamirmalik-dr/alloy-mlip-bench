@@ -1,0 +1,31 @@
+{
+  "source": "Materials Project API (DFT), CC BY 4.0",
+  "note": "Real DFT validation anchors. Conventional BCC a0 recovered from volume per atom of the primitive cell; B0 is bulk_modulus.vrh; Cij from the IEEE-format elastic tensor where available.",
+  "citation": "A. Jain et al., APL Materials 1, 011002 (2013). https://materialsproject.org",
+  "anchors": {
+    "Ti": {
+      "material_id": "mp-73",
+      "a0_angstrom": 3.2516,
+      "b0_gpa": 111.05,
+      "c11_gpa": 93.0,
+      "c12_gpa": 120.0,
+      "c44_gpa": 36.0
+    },
+    "Zr": {
+      "material_id": "mp-41",
+      "a0_angstrom": 3.5817,
+      "b0_gpa": 88.4,
+      "c11_gpa": 83.0,
+      "c12_gpa": 91.0,
+      "c44_gpa": 31.0
+    },
+    "Nb": {
+      "material_id": "mp-75",
+      "a0_angstrom": 3.3176,
+      "b0_gpa": 172.05,
+      "c11_gpa": 206.0,
+      "c12_gpa": 155.0,
+      "c44_gpa": 43.0
+    }
+  }
+}
