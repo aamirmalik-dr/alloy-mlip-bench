@@ -1,0 +1,13 @@
+# Split-protocol control: what would a random-frame split have claimed?
+# Both arms get the identical model, budget, and hyperparameters; only the
+# split protocol differs. Reduced epochs keep the control affordable; the
+# measured quantity is the GAP, and both arms share the budget.
+dataset: data/full/dataset.extxyz
+holdout_compositions: [Ti2ZrNb, TiZrNb2]
+model: compact
+seeds: [0, 1, 2]
+epochs: 30
+lr: 3.0e-3
+force_weight: 1.0
+batch_size: 8
+out: results/split_gap.json

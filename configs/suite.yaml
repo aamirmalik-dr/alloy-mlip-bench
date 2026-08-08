@@ -1,0 +1,45 @@
+# Property benchmark suite. Every model sees identical structures (same
+# occupancy seeds) probed around its OWN equilibrium geometry. All values
+# are model predictions; anchors live in data/anchors_*.json.
+seed: 20260807
+reps: 3                  # 54-atom benchmark cells
+out_dir: results/suite
+
+eos:
+  compositions: [Ti, Zr, Nb, TiZrNb]
+  span: 0.08
+  n_points: 11
+  relax_alloy: true      # internal relaxation for non-elemental cells
+
+elastic:
+  deltas: [0.006, 0.012]
+  targets:
+    - {composition: Nb, relax_internal: false}
+    - {composition: TiZrNb, relax_internal: true}
+
+vacancy:
+  targets:
+    - {composition: Nb, n_sites: 1}
+    - {composition: TiZrNb, n_sites: 5}
+
+nve:
+  composition: TiZrNb
+  temperature_k: 300
+  steps: 1500            # 3 ps at 2 fs
+  gate_mev_atom_ps: 1.0
+
+speed:
+  composition: TiZrNb
+  timed_steps: 100
+
+rdf:
+  composition: TiZrNb
+  temperatures_k: [300, 1200]
+  equil_steps: 300
+  prod_steps: 1000
+
+thermal:
+  composition: TiZrNb
+  temperatures_k: [300, 600, 900]
+  equil_steps: 300
+  prod_steps: 800

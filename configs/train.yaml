@@ -1,0 +1,22 @@
+# Matched-budget training of both models: the same grid is screened at
+# reduced epochs for every model, the winner retrains at the full budget,
+# and selection uses one fixed scalar (E MAE meV/atom + 0.3 * F MAE meV/A)
+# on the validation split. No model is hand-tuned.
+dataset: data/full/dataset.extxyz
+holdout_compositions: [Ti2ZrNb, TiZrNb2]
+split_seed: 0
+train_seed: 0
+
+models: [compact, pairnet]
+grid:
+  - {lr: 1.0e-3, force_weight: 0.2}
+  - {lr: 3.0e-3, force_weight: 0.2}
+  - {lr: 1.0e-3, force_weight: 1.0}
+  - {lr: 3.0e-3, force_weight: 1.0}
+screen_epochs: 25
+final_epochs: 80
+batch_size: 8
+
+model_dir: models
+training_out: results/training.json
+accuracy_out: results/accuracy.json
