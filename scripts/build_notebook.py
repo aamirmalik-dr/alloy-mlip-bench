@@ -44,6 +44,7 @@ enters only as Materials Project validation anchors."""),
     code("""\
 import json
 import time
+import warnings
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -58,6 +59,10 @@ from alloybench.models import fit_element_refs, set_element_refs
 from alloybench.properties import eos_scan, nve_drift, speed_benchmark
 from alloybench.splits import group_split
 from alloybench.train import build_model, prepare_frames, train_potential
+
+# chgnet's internal energy call trips a torch tensor-to-scalar UserWarning;
+# it is upstream noise, not something this pipeline controls.
+warnings.filterwarnings("ignore", message="Converting a tensor with requires_grad")
 
 COLOR = {"compact": "#2a78d6", "chgnet": "#eb6834", "mace-mp0-small": "#1baf7a",
          "pairnet": "#eda100"}

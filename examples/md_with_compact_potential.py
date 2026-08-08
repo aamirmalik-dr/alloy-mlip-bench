@@ -44,8 +44,7 @@ def main() -> int:
             f"E_pot = {atoms.get_potential_energy() / len(atoms):8.4f} eV/atom"
         )
 
-    report()
-    dyn.attach(report, interval=50)
+    dyn.attach(report, interval=50)  # ASE also calls observers once at step 0
     dyn.run(200)
     return 0
 
