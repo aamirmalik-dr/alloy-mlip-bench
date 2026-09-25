@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this code, data, or benchmark results, please cite the repository."
+title: "alloy-mlip-bench: machine-learning interatomic potentials as ASE calculators, benchmarked on BCC TiZrNb properties"
+type: software
+authors:
+  - family-names: Malik
+    given-names: Aamir
+version: 0.1.0
+date-released: "2026-08-08"
+license: MIT
+repository-code: "https://github.com/aamirmalik-dr/alloy-mlip-bench"
+keywords:
+  - machine-learning interatomic potential
+  - ASE
+  - benchmark
+  - foundation potential
+  - CHGNet
+  - MACE
+  - TiZrNb
+  - elastic constants
+  - equation of state
