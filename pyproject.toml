@@ -10,6 +10,18 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Aamir Malik" }]
+keywords = ["machine-learning interatomic potential", "ASE calculator", "benchmark", "foundation potential", "CHGNet", "MACE", "TiZrNb", "refractory alloy", "elastic constants", "equation of state"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = [
     "numpy>=1.26",
     "torch>=2.1",
@@ -22,6 +34,11 @@ dependencies = [
 foundation = ["chgnet>=0.4", "mace-torch>=0.3"]
 anchors = ["mp-api>=0.41"]
 dev = ["pytest>=8.0", "ruff==0.16.2", "black==26.5.1"]
+
+[project.urls]
+Repository = "https://github.com/aamirmalik-dr/alloy-mlip-bench"
+Issues = "https://github.com/aamirmalik-dr/alloy-mlip-bench/issues"
+Results = "https://github.com/aamirmalik-dr/alloy-mlip-bench/blob/main/RESULTS.md"
 
 [project.scripts]
 alloybench = "alloybench.cli:main"
