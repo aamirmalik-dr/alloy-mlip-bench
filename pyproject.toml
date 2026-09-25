@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "alloybench"
-version = "0.1.0"
+version = "0.1.1"
 description = "Deploy machine-learning interatomic potentials as ASE calculators and benchmark TiZrNb alloy properties: accuracy versus speed"
 readme = "README.md"
 requires-python = ">=3.11"
